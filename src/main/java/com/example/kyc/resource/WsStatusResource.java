@@ -10,7 +10,7 @@ import java.util.logging.Logger;
 
 import jakarta.annotation.security.RolesAllowed;
 
-@Path("/kyc")
+@Path("api/kyc")
 @Produces(MediaType.APPLICATION_JSON)
 @Consumes(MediaType.APPLICATION_JSON)
 public class WsStatusResource {
