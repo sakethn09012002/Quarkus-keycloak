@@ -1,0 +1,29 @@
+services:
+  keycloak:
+    image: quay.io/keycloak/keycloak:latest
+    container_name: keycloak
+    command: start-dev
+    environment:
+      KC_BOOTSTRAP_ADMIN_USERNAME: admin
+      KC_BOOTSTRAP_ADMIN_PASSWORD: admin
+      KC_HOSTNAME: http://localhost:8080
+      KC_HOSTNAME_BACKCHANNEL_DYNAMIC: true
+    ports:
+      - "8080:8080"
+    networks:
+      - appnet
+
+  quarkus:
+    build:
+      dockerfile: src/main/docker/Dockerfile.jvm
+    container_name: quarkus-app
+    depends_on:
+      - keycloak
+    ports:
+      - "8181:8181"
+    networks:
+      - appnet
+
+networks:
+  appnet:
+    driver: bridge
