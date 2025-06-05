@@ -6,5 +6,5 @@ import io.quarkus.hibernate.orm.panache.PanacheRepository;
 import jakarta.enterprise.context.ApplicationScoped;
 
 @ApplicationScoped
-public class repository implements PanacheRepository<WsStatus> {
+public class WsStatusRepository implements PanacheRepository<WsStatus> {
 }

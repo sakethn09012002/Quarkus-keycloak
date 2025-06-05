@@ -2,7 +2,7 @@ package com.example.kyc.service;
 
 
 import com.example.kyc.entity.WsStatus;
-import com.example.kyc.repository.repository;
+import com.example.kyc.repository.WsStatusRepository;
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
 
@@ -12,14 +12,14 @@ import java.util.List;
 public class WsStatusService {
 
     @Inject
-    repository repository;
+    WsStatusRepository WsStatusRepository;
 
     public List<WsStatus> getAll() {
-        return repository.listAll();
+        return WsStatusRepository.listAll();
     }
 
     public WsStatus getById(String uuid) {
-        return repository.find("uuid", uuid).firstResult();
+        return WsStatusRepository.find("uuid", uuid).firstResult();
     }
 }
 
