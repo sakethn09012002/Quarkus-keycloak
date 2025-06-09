@@ -1,7 +1,7 @@
 package com.example.kyc.resource;
 
-import com.example.kyc.entity.WsStatus;
-import com.example.kyc.service.WsStatusService;
+import com.example.kyc.entity.Web_Service_Status_Entity;
+import com.example.kyc.service.Web_Service_Status_Service;
 import jakarta.inject.Inject;
 import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.MediaType;
@@ -13,16 +13,16 @@ import jakarta.annotation.security.RolesAllowed;
 @Path("api/kyc")
 @Produces(MediaType.APPLICATION_JSON)
 @Consumes(MediaType.APPLICATION_JSON)
-public class WsStatusResource {
+public class Web_Service_Status_Resource {
 
-    private static final Logger logger = Logger.getLogger(WsStatusResource.class.getName());
+    private static final Logger logger = Logger.getLogger(Web_Service_Status_Resource.class.getName());
     @Inject
-    WsStatusService service;
+    Web_Service_Status_Service service;
 
     @GET
     @RolesAllowed("admin")
     @Produces(MediaType.APPLICATION_JSON)
-    public List<WsStatus> getAll() {
+    public List<Web_Service_Status_Entity> getAll() {
         logger.info("admin user called");
         return service.getAll();
     }
@@ -30,7 +30,7 @@ public class WsStatusResource {
     @GET
     @Path("/{id}")
     @RolesAllowed({"admin", "user"})
-    public WsStatus getById(@PathParam("id") String id) {
+    public Web_Service_Status_Entity getById(@PathParam("id") String id) {
         logger.info("admin user called and normal user called");
 
         return service.getById(id);
