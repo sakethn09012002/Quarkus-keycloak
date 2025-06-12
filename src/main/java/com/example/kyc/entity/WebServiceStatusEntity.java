@@ -7,7 +7,7 @@ import jakarta.persistence.Table;
 
 @Entity
 @Table(name = "WSTATUS",schema = "CLNT0001")
-public class Web_Service_Status_Entity {
+public class WebServiceStatusEntity {
 
     @Id
     @Column(name = "WS_REQUEST_UUID", columnDefinition = "nvarchar(100)")
@@ -46,7 +46,7 @@ public class Web_Service_Status_Entity {
     @Column(name = "SERVERNAME",columnDefinition = "nvarchar(300)")
     public String serverName;
 
-    public Web_Service_Status_Entity(String uuid, String wsMethodName, String requestTimeStart, String requestTimeEnd, int returnCode, String scoringDir, String scoringTimeStart, String scoringTimeEnd, int tbqFormid, String asyncRequestId, String relatingCustomers, String serverName) {
+    public WebServiceStatusEntity(String uuid, String wsMethodName, String requestTimeStart, String requestTimeEnd, int returnCode, String scoringDir, String scoringTimeStart, String scoringTimeEnd, int tbqFormid, String asyncRequestId, String relatingCustomers, String serverName) {
         this.uuid = uuid;
         this.wsMethodName = wsMethodName;
         this.requestTimeStart = requestTimeStart;
@@ -61,7 +61,7 @@ public class Web_Service_Status_Entity {
         this.serverName = serverName;
     }
 
-    public Web_Service_Status_Entity() {}
+    public WebServiceStatusEntity() {}
 
     public String getRequestTimeEnd() {
         return requestTimeEnd;
